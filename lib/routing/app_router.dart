@@ -35,9 +35,7 @@ GoRouter goRouter(GoRouterRef ref) {
           return '/';
         }
       } else {
-        if (path == '/account' || path == '/orders') {
-          return '/';
-        }
+          return '/signIn';
       }
       return null;
     },
@@ -46,7 +44,7 @@ GoRouter goRouter(GoRouterRef ref) {
       GoRoute(
         path: '/',
         name: AppRoute.home.name,
-        builder: (context, state) =>  Container(child: Text('Gau Ne'),),
+        builder: (context, state) =>  Container(child: Text('Home Screen'),),
         routes: [
           GoRoute(
             path: 'account',
