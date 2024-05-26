@@ -1,0 +1,2 @@
+# flutter_clean_architecture_boilerplate
+Boilerplate Project
