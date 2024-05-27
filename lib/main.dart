@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture_boilerplate/app.dart';
 import 'package:flutter_clean_architecture_boilerplate/exceptions/async_error_logger.dart';
 import 'package:flutter_clean_architecture_boilerplate/exceptions/error_logger.dart';
+import 'package:flutter_clean_architecture_boilerplate/infrastructure/storage/hive_storage_service.dart';
+import 'package:flutter_clean_architecture_boilerplate/infrastructure/storage/storage_service.dart';
+import 'package:flutter_clean_architecture_boilerplate/infrastructure/storage/storage_service_provider.dart';
 import 'package:flutter_clean_architecture_boilerplate/localization/string_hardcoded.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 // ignore:depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,13 +18,17 @@ void main() async {
   usePathUrlStrategy();
   // * Register error handlers. For more info, see:
   // * https://docs.flutter.dev/testing/errors
-
+  // Hive-specific initialization
+  await Hive.initFlutter();
+  final StorageService initializedStorageService = HiveStorageService();
 
   // * Create ProviderContainer with any required overrides
   final container = ProviderContainer(
     observers: [AsyncErrorLogger()],
+    overrides: [
+      storageServiceProvider.overrideWithValue(initializedStorageService),
+    ],
   );
-
 
   final errorLogger = container.read(errorLoggerProvider);
   // * Register error handlers. For more info, see:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture_boilerplate/localization/string_hardcoded.dart';
 import 'package:flutter_clean_architecture_boilerplate/routing/app_router.dart';
+import 'package:flutter_clean_architecture_boilerplate/styles/app_themes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MyApp extends ConsumerWidget {
@@ -14,22 +15,18 @@ class MyApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       restorationScopeId: 'app',
       onGenerateTitle: (BuildContext context) => 'My App'.hardcoded,
-      theme: ThemeData(
-        // * Use this to toggle Material 3 (defaults to true since Flutter 3.16)
-        useMaterial3: true,
-        primarySwatch: Colors.grey,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.black87,
-          foregroundColor: Colors.white,
-          elevation: 0,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.black, // background (button) color
-            foregroundColor: Colors.white, // foreground (text) color
-          ),
-        ),
-      ),
+      supportedLocales: const [
+        // 'en' is the language code. We could optionally provide a
+        // a country code as the second param, e.g.
+        // Locale('en', 'US'). If we do that, we may want to
+        // provide an additional app_en_US.arb file for
+        // region-specific translations.
+        Locale('en', ''),
+        // Locale('vi', ''),
+      ],
+      themeMode: ThemeMode.dark,
+      theme: AppThemes.darkTheme,
+      darkTheme: AppThemes.darkTheme,
     );
   }
 }
