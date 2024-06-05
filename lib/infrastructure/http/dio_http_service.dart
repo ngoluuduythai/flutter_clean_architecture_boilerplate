@@ -1,10 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_clean_architecture_boilerplate/configs/configs.dart';
+import 'package:flutter_clean_architecture_boilerplate/constants/endpoints.dart';
 import 'package:flutter_clean_architecture_boilerplate/infrastructure/http/dio-interceptors/cache_interceptor.dart';
 import 'package:flutter_clean_architecture_boilerplate/infrastructure/http/http_service.dart';
 import 'package:flutter_clean_architecture_boilerplate/infrastructure/logger/system_logger.dart';
 import 'package:flutter_clean_architecture_boilerplate/infrastructure/storage/storage_service.dart';
-
 
 class DioHttpService implements HttpService {
   final StorageService storageService;
@@ -24,7 +23,7 @@ class DioHttpService implements HttpService {
   }
 
   @override
-  String get baseUrl => Configs.apiBaseUrl;
+  String get baseUrl => Endpoints.baseUrl;
 
   @override
   Map<String, String> headers = {
