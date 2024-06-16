@@ -30,10 +30,23 @@ class AppThemes {
         scrolledUnderElevation: 0,
         elevation: 0,
       ),
-      navigationBarTheme: const NavigationBarThemeData(
+      navigationBarTheme: NavigationBarThemeData(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        indicatorColor: Colors.transparent,
+        indicatorColor: AppColors.primary,
+        labelTextStyle:
+            WidgetStateTextStyle.resolveWith((Set<WidgetState> states) {
+          TextStyle style =
+              const TextStyle(fontWeight: FontWeight.w500, fontSize: 11);
+          if (states.contains(WidgetState.selected)) {
+            style = style.merge(const TextStyle(
+                fontWeight: FontWeight.w600, color: AppColors.primary));
+          }
+          return style;
+        }),
+      ),
+      navigationRailTheme: const NavigationRailThemeData(
+        indicatorColor: AppColors.primary,
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
@@ -57,8 +70,7 @@ class AppThemes {
           fillColor: AppColors.black,
         ),
         menuStyle: MenuStyle(
-          backgroundColor:
-              const WidgetStatePropertyAll<Color>(AppColors.black),
+          backgroundColor: const WidgetStatePropertyAll<Color>(AppColors.black),
           elevation: const WidgetStatePropertyAll<double>(0),
           shape: WidgetStatePropertyAll<OutlinedBorder>(
             RoundedRectangleBorder(
