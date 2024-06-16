@@ -1,33 +1,16 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primary1 = Color(0xff333a45);
-  static const Color primary2 = Color(0xff7AAEFF);
-  static const Color black = Color(0xff000000);
-  static const Color white = Color(0xffffffff);
-  static Color white20 = const Color(0xffffffff).withOpacity(0.2);
-  static Color white8 = const Color(0xffffffff).withOpacity(0.08);
-  static Color white6 = const Color(0xffffffff).withOpacity(0.06);
-  static Color white12 = Colors.white.withOpacity(0.12);
-  static Color white4 = const Color(0xffffffff).withOpacity(0.04);
-  static Color white50 = const Color(0xffffffff).withOpacity(0.5);
-  static Color white80 = const Color(0xffffffff).withOpacity(0.8);
-  static const Color cameraBackground = Color(0xfff0f0f0);
-  static const Color black30 = Color(0xff242930);
-  static const Color error = Color(0xffe85c4a);
-  static const Color redCaution = Color(0xFFF46262);
-  static const Color transparent = Color(0x00000000);
-  static const Color secondary1 = Color(0xff3b424c);
-  static const Color secondary2 = Color(0xff1c1e2a);
-  static const Color secondary3 = Color(0xff21232e);
-  static const Color secondary4 = Color(0xff2b2c37);
-  static const Color secondary5 = Color(0xff7a7b82);
-  static const Color secondary6 = Color(0xffa6a7ab);
-  static const Color secondary7 = Color(0xff3f414c);
-  static const Color secondary8 = Color(0xff1e1f30);
-  static const Color loginCard = Color(0xff3d444e);
-  static const Color greyOut = Color(0xffE5E5E5);
-  static const Color noFrameTitle = Color(0xfff2740a);
+  static const Color primary = Color(0xff1A77FF);
+  static const Color secondary = Color(0xffFFBB05);
+  static const Color accent = Color(0xffF5C3D2);
+  static const Color border = Color(0xff505254);
+  static const Color danger = Color(0xffF70000);
+  static const Color success = Color(0xff04B616);
+  static const Color black = Color(0xff1A1A1A);
+  static const Color onBlack = Color(0xff353535);
+  static const Color onWhite = Color(0xffEBEBEB);
+  static const Color white = Color(0xffF2F2F2);
 
   static Color getShade(Color color, {bool darker = false, double value = .1}) {
     assert(value >= 0 && value <= 1);
