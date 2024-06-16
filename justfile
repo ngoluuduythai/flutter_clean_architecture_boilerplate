@@ -65,3 +65,9 @@ junit_report:
 
 coverage_test_report:
   flutter test --coverage 
+
+create_splash_screen:
+  dart run flutter_native_splash:create --path=flutter_native_splash.yaml
+
+create_app_icons:
+  flutter pub run flutter_launcher_icons -f  flutter_launcher_icons.yaml
